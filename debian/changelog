@@ -1,3 +1,31 @@
+expat (2.7.3-1) unstable; urgency=high
+
+  * New upstream release:
+    - fix alignment of internal allocations for some non-amd64
+      architectures, fixes up on the fix to CVE-2025-59375,
+    - fix a class of false positives where input should have been rejected
+      with error XML_ERROR_ASYNC_ENTITY; regression from CVE-2024-8176.
+
+ -- Laszlo Boszormenyi (GCS) <gcs@debian.org>  Wed, 24 Sep 2025 23:31:38 +0200
+
+expat (2.7.2-1) unstable; urgency=high
+
+  * New upstream release:
+    - fixes CVE-2025-59375: disallow use of disproportional amounts of
+      dynamic memory from within an Expat parser (closes: #1115298).
+  * Update fix-expat-cmake patch.
+  * Update libexpat1 symbols.
+  * Update Standards-Version to 4.7.2 .
+
+ -- Laszlo Boszormenyi (GCS) <gcs@debian.org>  Tue, 16 Sep 2025 19:59:38 +0200
+
+expat (2.7.1-2) unstable; urgency=medium
+
+  * Move libc6 dependency to pre-dependency on libexpat1 to prevent
+    dist-upgrade errors with python packages (closes: #1108934).
+
+ -- Laszlo Boszormenyi (GCS) <gcs@debian.org>  Mon, 14 Jul 2025 08:05:27 +0000
+
 expat (2.7.1-1) unstable; urgency=medium
 
   * New upstream release:
