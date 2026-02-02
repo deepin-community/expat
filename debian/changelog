@@ -1,3 +1,22 @@
+expat (2.7.4-1) unstable; urgency=high
+
+  * New upstream release:
+    - fixes CVE-2026-25210: integer overflow check for tag buffer
+      reallocation (closes: #1126697),
+    - no longer ships expat.m4 file.
+  * Update watch file.
+
+ -- Laszlo Boszormenyi (GCS) <gcs@debian.org>  Sat, 31 Jan 2026 15:29:44 +0100
+
+expat (2.7.3-2) unstable; urgency=high
+
+  * Backport upstream fix for CVE-2026-24515: make
+    XML_ExternalEntityParserCreate() copy unknown encoding handler user data
+    (closes: 1126277).
+  * Remove now redundant Rules-Requires-Root value.
+
+ -- Laszlo Boszormenyi (GCS) <gcs@debian.org>  Fri, 23 Jan 2026 16:48:32 +0100
+
 expat (2.7.3-1) unstable; urgency=high
 
   * New upstream release:
