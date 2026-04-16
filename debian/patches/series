@@ -1,2 +1,3 @@
 fix-expat-noconfig.patch
 fix-expat-cmake.patch
+cve_2026_41080.patch

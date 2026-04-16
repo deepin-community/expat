@@ -1,0 +1,39 @@
+Description: Fix insufficient entropy for hash flooding (CVE-2026-41080)
+ This patch backports three upstream fixes to ensure proper entropy gathering:
+ 1. Reset errno before getrandom() call to avoid false failure detection
+ 2. Reset errno before read() from /dev/urandom to avoid false failure detection
+ 3. Use O_CLOEXEC when opening /dev/urandom to avoid FD leakage to child processes
+Author: Matthew Fernandez <matthew.fernandez@gmail.com>
+Origin: upstream, https://github.com/libexpat/libexpat
+Bug: https://security-tracker.debian.org/tracker/CVE-2026-41080
+Forwarded: not-needed
+
+--- a/expat/lib/xmlparse.c
++++ b/expat/lib/xmlparse.c
+@@ -1062,6 +1062,8 @@ writeRandomBytes_getrandom_nonblock(void *target, size_t count) {
+ 
+     assert(bytesToWrite <= INT_MAX);
+ 
++    errno = 0;
++
+     const int bytesWrittenMore =
+ #      if defined(HAVE_GETRANDOM)
+         (int)getrandom(currentTarget, bytesToWrite, getrandomFlags);
+@@ -1092,7 +1094,7 @@ writeRandomBytes_dev_urandom(void *target, size_t count) {
+   int success = 0; /* full count bytes written? */
+   size_t bytesWrittenTotal = 0;
+ 
+-  const int fd = open("/dev/urandom", O_RDONLY);
++  const int fd = open("/dev/urandom", O_RDONLY | O_CLOEXEC);
+   if (fd < 0) {
+     return 0;
+   }
+@@ -1103,6 +1105,8 @@ writeRandomBytes_dev_urandom(void *target, size_t count) {
+     void *const currentTarget = (void *)((char *)target + bytesWrittenTotal);
+     const size_t bytesToWrite = count - bytesWrittenTotal;
+ 
++    errno = 0;
++
+     const ssize_t bytesWrittenMore = read(fd, currentTarget, bytesToWrite);
+ 
+     if (bytesWrittenMore > 0) {
