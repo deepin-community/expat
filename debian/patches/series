@@ -1,2 +1,12 @@
 fix-expat-noconfig.patch
 fix-expat-cmake.patch
+drop-casts-around-malloc.patch
+drop-casts-around-XML_GetUserData.patch
+CVE-2026-45186_part1.patch
+CVE-2026-45186_part2.patch
+CVE-2026-45186_part3.patch
+CVE-2026-45186_part4.patch
+CVE-2026-45186_part5.patch
+CVE-2026-45186_part6.patch
+CVE-2026-45186_part7.patch
+CVE-2026-45186_part8.patch
