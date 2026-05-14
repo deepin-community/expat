@@ -50,6 +50,7 @@ libexpat.so.1 libexpat1 #MINVER#
  XML_SetEntityDeclHandler@Base 2.0.1
  XML_SetExternalEntityRefHandler@Base 2.0.1
  XML_SetExternalEntityRefHandlerArg@Base 2.0.1
+ XML_SetHashSalt16Bytes@Base 2.8.0
  XML_SetHashSalt@Base 2.1~beta3
  XML_SetNamespaceDeclHandler@Base 2.0.1
  XML_SetNotStandaloneHandler@Base 2.0.1
@@ -122,6 +123,7 @@ libexpatw.so.1 libexpat1 #MINVER#
  XML_SetEntityDeclHandler@Base 2.0.1
  XML_SetExternalEntityRefHandler@Base 2.0.1
  XML_SetExternalEntityRefHandlerArg@Base 2.0.1
+ XML_SetHashSalt16Bytes@Base 2.8.0
  XML_SetHashSalt@Base 2.1~beta3
  XML_SetNamespaceDeclHandler@Base 2.0.1
  XML_SetNotStandaloneHandler@Base 2.0.1

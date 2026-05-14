@@ -1,3 +1,35 @@
+expat (2.8.0-2) unstable; urgency=high
+
+  * Backport upstream fixes for self-testing:
+    - drop casts around malloc that C99 does not need,
+    - drop casts around XML_GetUserData that C99 does not need.
+  * Backport upstream fixes for CVE-2026-45186: attribute name collision
+    checks allowed denial of service attacks through moderately sized
+    crafted XML input (closes: #1136164).
+
+ -- Laszlo Boszormenyi (GCS) <gcs@debian.org>  Sun, 10 May 2026 16:51:27 +0200
+
+expat (2.8.0-1) unstable; urgency=high
+
+  * New upstream release:
+    - fixes CVE-2026-41080: improve protection against hash flooding
+      (closes: #1134732).
+  * Update libexpat1 symbols.
+
+ -- Laszlo Boszormenyi (GCS) <gcs@debian.org>  Sat, 25 Apr 2026 07:19:30 +0200
+
+expat (2.7.5-1) unstable; urgency=high
+
+  * New upstream release:
+    - fixes CVE-2026-32776: NULL function pointer dereference for empty
+      external parameter entities (closes: #1131117),
+    - fixes CVE-2026-32777: protect from XML_TOK_INSTANCE_START infinite
+      loop in entityValueProcessor() (closes: #1131118),
+    - fixes CVE-2026-32778: NULL dereference in setContext() on retry after
+      an earlier ouf-of-memory condition (closes: #1131119).
+
+ -- Laszlo Boszormenyi (GCS) <gcs@debian.org>  Tue, 17 Mar 2026 22:23:17 +0100
+
 expat (2.7.4-1) unstable; urgency=high
 
   * New upstream release:

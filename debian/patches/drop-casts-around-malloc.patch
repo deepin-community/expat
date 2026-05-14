@@ -1,0 +1,141 @@
+commit e7ed2d64df8ee754426c169e36c84b7f01a5bf0c
+Author: Matthew Fernandez <matthew.fernandez@gmail.com>
+Date:   Mon Apr 27 17:02:34 2026 +1000
+
+    tests: Drop casts around `malloc` that C99 does not need
+    
+    `malloc` returns a `void *`. Under C99, `void *` implicitly coerces to
+    all other pointer types.
+    
+    This is a follow-up to changes merged in
+    89e6f354f44f27eda61e1b94a473f88b2f9a8bc6.
+
+diff --git a/expat/tests/basic_tests.c b/expat/tests/basic_tests.c
+index 537c7e0e..a4a19472 100644
+--- a/expat/tests/basic_tests.c
++++ b/expat/tests/basic_tests.c
+@@ -5501,7 +5501,7 @@ START_TEST(test_deep_nested_entity) {
+   const size_t N_LINES = 60000;
+   const size_t SIZE_PER_LINE = 50;
+ 
+-  char *const text = (char *)malloc((N_LINES + 4) * SIZE_PER_LINE);
++  char *const text = malloc((N_LINES + 4) * SIZE_PER_LINE);
+   if (text == NULL) {
+     fail("malloc failed");
+   }
+@@ -5547,7 +5547,7 @@ START_TEST(test_deep_nested_attribute_entity) {
+   const size_t N_LINES = 60000;
+   const size_t SIZE_PER_LINE = 100;
+ 
+-  char *const text = (char *)malloc((N_LINES + 4) * SIZE_PER_LINE);
++  char *const text = malloc((N_LINES + 4) * SIZE_PER_LINE);
+   if (text == NULL) {
+     fail("malloc failed");
+   }
+@@ -5590,7 +5590,7 @@ START_TEST(test_deep_nested_entity_delayed_interpretation) {
+   const size_t N_LINES = 70000;
+   const size_t SIZE_PER_LINE = 100;
+ 
+-  char *const text = (char *)malloc((N_LINES + 4) * SIZE_PER_LINE);
++  char *const text = malloc((N_LINES + 4) * SIZE_PER_LINE);
+   if (text == NULL) {
+     fail("malloc failed");
+   }
+@@ -6069,7 +6069,7 @@ START_TEST(test_bypass_heuristic_when_close_to_bufsize) {
+   }
+ 
+   const int document_length = 65536;
+-  char *const document = (char *)malloc(document_length);
++  char *const document = malloc(document_length);
+   assert_true(document != NULL);
+ 
+   const XML_Memory_Handling_Suite memfuncs = {
+@@ -6180,7 +6180,7 @@ START_TEST(test_varying_buffer_fills) {
+     return; // this test is slow, and doesn't use _XML_Parse_SINGLE_BYTES().
+   }
+ 
+-  char *const document = (char *)malloc(document_length);
++  char *const document = malloc(document_length);
+   assert_true(document != NULL);
+   memset(document, 'x', document_length);
+   document[0] = '<';
+diff --git a/expat/tests/common.c b/expat/tests/common.c
+index b2537d0d..a721ebdf 100644
+--- a/expat/tests/common.c
++++ b/expat/tests/common.c
+@@ -261,7 +261,7 @@ _run_attribute_check(const char *text, const XML_Char *expected,
+ void
+ _run_ext_character_check(const char *text, ExtTest *test_data,
+                          const XML_Char *expected, const char *file, int line) {
+-  CharData *const storage = (CharData *)malloc(sizeof(CharData));
++  CharData *const storage = malloc(sizeof(CharData));
+ 
+   CharData_Init(storage);
+   test_data->storage = storage;
+@@ -320,7 +320,7 @@ portable_strndup(const char *s, size_t n) {
+ 
+   n = portable_strnlen(s, n);
+ 
+-  char *const buffer = (char *)malloc(n + 1);
++  char *const buffer = malloc(n + 1);
+   if (buffer == NULL) {
+     errno = ENOMEM;
+     return NULL;
+diff --git a/expat/tests/memcheck.c b/expat/tests/memcheck.c
+index de925499..28d4353b 100644
+--- a/expat/tests/memcheck.c
++++ b/expat/tests/memcheck.c
+@@ -55,8 +55,7 @@ static AllocationEntry *find_allocation(const void *ptr);
+ /* Allocate some memory and keep track of it. */
+ void *
+ tracking_malloc(size_t size) {
+-  AllocationEntry *const entry
+-      = (AllocationEntry *)malloc(sizeof(AllocationEntry));
++  AllocationEntry *const entry = malloc(sizeof(AllocationEntry));
+ 
+   if (entry == NULL) {
+     printf("Allocator failure\n");
+@@ -142,7 +141,7 @@ tracking_realloc(void *ptr, size_t size) {
+   entry = find_allocation(ptr);
+   if (entry == NULL) {
+     printf("Attempting to realloc unallocated memory at %p\n", ptr);
+-    entry = (AllocationEntry *)malloc(sizeof(AllocationEntry));
++    entry = malloc(sizeof(AllocationEntry));
+     if (entry == NULL) {
+       printf("Reallocator failure\n");
+       return NULL;
+diff --git a/expat/tests/misc_tests.c b/expat/tests/misc_tests.c
+index 6d1a2f14..86296e62 100644
+--- a/expat/tests/misc_tests.c
++++ b/expat/tests/misc_tests.c
+@@ -298,7 +298,7 @@ START_TEST(test_misc_stop_during_end_handler_issue_240_1) {
+ 
+   parser = XML_ParserCreate(NULL);
+   XML_SetElementHandler(parser, start_element_issue_240, end_element_issue_240);
+-  mydata = (DataIssue240 *)malloc(sizeof(DataIssue240));
++  mydata = malloc(sizeof(DataIssue240));
+   assert_true(mydata != NULL);
+   mydata->parser = parser;
+   mydata->deep = 0;
+@@ -320,7 +320,7 @@ START_TEST(test_misc_stop_during_end_handler_issue_240_2) {
+ 
+   parser = XML_ParserCreate(NULL);
+   XML_SetElementHandler(parser, start_element_issue_240, end_element_issue_240);
+-  mydata = (DataIssue240 *)malloc(sizeof(DataIssue240));
++  mydata = malloc(sizeof(DataIssue240));
+   assert_true(mydata != NULL);
+   mydata->parser = parser;
+   mydata->deep = 0;
+diff --git a/expat/tests/structdata.c b/expat/tests/structdata.c
+index e311f1fa..da320a7d 100644
+--- a/expat/tests/structdata.c
++++ b/expat/tests/structdata.c
+@@ -61,7 +61,7 @@
+ static XML_Char *
+ xmlstrdup(const XML_Char *s) {
+   size_t byte_count = (xcstrlen(s) + 1) * sizeof(XML_Char);
+-  XML_Char *const dup = (XML_Char *)malloc(byte_count);
++  XML_Char *const dup = malloc(byte_count);
+ 
+   assert(dup != NULL);
+   memcpy(dup, s, byte_count);
