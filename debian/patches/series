@@ -1,4 +1,5 @@
 CVE-2026-56408.patch
+CVE-2026-56404.patch
 fix-expat-noconfig.patch
 fix-expat-cmake.patch
 drop-casts-around-malloc.patch
