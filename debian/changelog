@@ -1,3 +1,10 @@
+expat (CVE-2026-56408+fix1) unstable; urgency=high
+
+  * Fix CVE-2026-56408: fix copyString integer overflow
+    (Closes: CVE-2026-56408)
+
+ -- deepin-ci-robot <packages@deepin.org>  Fri, 10 Jul 2026 03:22:39 +0800
+
 expat (2.8.0-2) unstable; urgency=high
 
   * Backport upstream fixes for self-testing:
