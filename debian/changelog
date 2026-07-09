@@ -1,3 +1,10 @@
+expat (CVE-2026-56406+fix1) unstable; urgency=high
+
+  * Fix CVE-2026-56406: fix XML_ParseBuffer overflow check
+    (Closes: CVE-2026-56406)
+
+ -- deepin-ci-robot <packages@deepin.org>  Fri, 10 Jul 2026 03:22:39 +0800
+
 expat (CVE-2026-56405+fix1) unstable; urgency=high
 
   * Fix CVE-2026-56405: fix getAttributeId integer overflow
