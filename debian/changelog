@@ -1,3 +1,21 @@
+expat (2.8.0-2deepin1) unstable; urgency=high
+
+  * Fix CVE-2026-56408: copyString integer overflow
+  * Fix CVE-2026-56403: storeAtts integer overflow
+  * Fix CVE-2026-56404: addBinding integer overflow
+  * Fix CVE-2026-56405: getAttributeId integer overflow
+  * Fix CVE-2026-56406: XML_ParseBuffer overflow check
+  * Fix CVE-2026-56132: doProlog scaffolding OOB write
+  * Fix CVE-2026-56410: resolveSystemId integer overflow
+  * Fix CVE-2026-50219, CVE-2026-56131: handler call depth tracking
+  * Fix CVE-2026-56412: cdata section handler guard
+  * Remove CVE-2026-56411.patch from series (already applied in code)
+  * Closes: CVE-2026-56408, CVE-2026-56403, CVE-2026-56404, CVE-2026-56405,
+    CVE-2026-56406, CVE-2026-56132, CVE-2026-56410, CVE-2026-50219,
+    CVE-2026-56131, CVE-2026-56412
+
+ -- deepin-ci-robot <packages@deepin.org>  Fri, 10 Jul 2026 17:27:38 +0800
+
 expat (cdata-guard+fix1) unstable; urgency=high
 
   * Fix CVE-2026-56412: guard XML_TOK_DATA_CHARS handler calls in doCdataSection()
