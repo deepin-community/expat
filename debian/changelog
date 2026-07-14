@@ -1,3 +1,11 @@
+expat (2.8.0-2deepin1) unstable; urgency=high
+
+  * Fix CVE-2026-56403: protect storeAtts from signed integer overflow
+  * Fix CVE-2026-56410: protect resolveSystemId from integer overflow
+  * Closes: CVE-2026-56403, CVE-2026-56410
+
+ -- deepin-ci-robot <packages@deepin.org>  Fri, 10 Jul 2026 17:56:28 +0800
+
 expat (2.8.0-2) unstable; urgency=high
 
   * Backport upstream fixes for self-testing:
