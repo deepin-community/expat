@@ -1,3 +1,18 @@
+expat (2.8.0-2deepin1) unstable; urgency=high
+
+  * Backport upstream fixes for multiple CVEs via quilt patches:
+    - CVE-2026-56403: protect storeAtts from signed integer overflow
+    - CVE-2026-56404: fix addBinding integer overflow
+    - CVE-2026-56405: fix getAttributeId integer overflow
+    - CVE-2026-56406: fix XML_ParseBuffer overflow check
+    - CVE-2026-56408: fix copyString integer overflow
+    - CVE-2026-56410: xmlwf: protect resolveSystemId from integer overflow
+    - CVE-2026-56412: guard XML_TOK_DATA_CHARS handler calls
+    - CVE-2026-56132: fix doProlog scaffolding OOB write
+    - CVE-2026-50219: Introduce handler call depth tracking
+
+ -- deepin-ci-robot <packages@deepin.org>  Sun, 19 Jul 2026 01:32:26 +0800
+
 expat (2.8.0-2) unstable; urgency=high
 
   * Backport upstream fixes for self-testing:
