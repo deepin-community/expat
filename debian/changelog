@@ -1,3 +1,9 @@
+expat (2.8.0-2deepin3) unstable; urgency=medium
+
+  * fix(cve): CVE-2026-56411
+
+ -- deepin-ci-robot <packages@deepin.org>  Mon, 20 Jul 2026 14:41:15 +0800
+
 expat (2.8.0-2deepin2) unstable; urgency=medium
 
   * fix(cve): CVE-2026-50219
