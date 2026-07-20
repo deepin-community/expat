@@ -267,3 +267,4 @@ EXPAT_WITH_LIBBSD:BOOL=OFF
 // Make use of syscall SYS_getrandom (ON|OFF|AUTO) [default=AUTO]
 EXPAT_WITH_SYS_GETRANDOM:STRING=AUTO
 ```
+test
