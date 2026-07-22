@@ -1,3 +1,10 @@
+expat (2.8.0-2deepin2) unstable; urgency=medium
+
+  * fix(cve): CVE-2026-56411 - xmlwf: protect notation list allocation from integer overflow
+  * fix(cve): CVE-2026-56409 - xmlwf: protect output path join from integer overflow
+
+ -- deepin-ci-robot <packages@deepin.org>  Wed, 22 Jul 2026 14:00:00 +0800
+
 expat (2.8.0-2deepin1) unstable; urgency=high
 
   * Backport upstream fixes for multiple CVEs via quilt patches:
