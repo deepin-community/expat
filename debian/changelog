@@ -1,24 +1,38 @@
-expat (2.8.0-2deepin2) unstable; urgency=medium
+expat (2.8.2-1~deb13u1) trixie-security; urgency=high
 
-  * fix(cve): CVE-2026-56411 - xmlwf: protect notation list allocation from integer overflow
-  * fix(cve): CVE-2026-56409 - xmlwf: protect output path join from integer overflow
+  * Upload 2.8.2 to trixie-security.
 
- -- deepin-ci-robot <packages@deepin.org>  Wed, 22 Jul 2026 14:00:00 +0800
+ -- Aron Xu <aron@debian.org>  Sat, 25 Jul 2026 05:04:21 +0800
 
-expat (2.8.0-2deepin1) unstable; urgency=high
+expat (2.8.2-1) unstable; urgency=high
 
-  * Backport upstream fixes for multiple CVEs via quilt patches:
-    - CVE-2026-56403: protect storeAtts from signed integer overflow
-    - CVE-2026-56404: fix addBinding integer overflow
-    - CVE-2026-56405: fix getAttributeId integer overflow
-    - CVE-2026-56406: fix XML_ParseBuffer overflow check
-    - CVE-2026-56408: fix copyString integer overflow
-    - CVE-2026-56410: xmlwf: protect resolveSystemId from integer overflow
-    - CVE-2026-56412: guard XML_TOK_DATA_CHARS handler calls
-    - CVE-2026-56132: fix doProlog scaffolding OOB write
-    - CVE-2026-50219: Introduce handler call depth tracking
+  * New upstream release (closes: #1138862, #1140387, #1140388, #1140557):
+    - fixes CVE-2026-56131: protect XML_ResumeParser() from being called from
+      a handler,
+    - fixes CVE-2026-56132: fix out-of-bound scaffolding index store in
+      doProlog(),
+    - fixes CVE-2026-50219: disallow calls to some functions to guard Expat
+      bindings from memory corruption,
+    - fixes CVE-2026-56403: integer overflow in storeAtts(),
+    - fixes CVE-2026-56404: integer overflow in addBinding(),
+    - fixes CVE-2026-56405: integer overflow in getAttributeId(),
+    - fixes CVE-2026-56406: integer overflow in XML_ParseBuffer(),
+    - fixes CVE-2026-56407: integer overflow in textLen handling,
+    - fixes CVE-2026-56408: integer overflow in copyString(),
+    - fixes CVE-2026-56409: integer overflow in output path join in xmlwf,
+    - fixes CVE-2026-56410: integer overflow in resolveSystemId() in xmlwf,
+    - fixes CVE-2026-56411: Integer overflow in notation list allocation
+      in xmlwf,
+    - fixes CVE-2026-56412: guard XML_TOK_DATA_CHARS handler calls
+      in doCdataSection().
 
- -- deepin-ci-robot <packages@deepin.org>  Sun, 19 Jul 2026 01:32:26 +0800
+ -- Laszlo Boszormenyi (GCS) <gcs@debian.org>  Thu, 25 Jun 2026 19:44:46 +0200
+
+expat (2.8.1-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Laszlo Boszormenyi (GCS) <gcs@debian.org>  Sat, 23 May 2026 09:01:54 +0200
 
 expat (2.8.0-2) unstable; urgency=high
 
