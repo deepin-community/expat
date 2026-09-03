@@ -1,8 +1,16 @@
+expat (2.8.2-1~deb13u1deepin5) unstable; urgency=medium
+
+  * fix(cve): CVE-2026-76641 - Fix out-of-bounds read from hash table
+    entries created by dtdCopy (regression from the CVE-2026-66046 fix)
+
+ -- deepin-ci-robot <packages@deepin.org>  Tue, 01 Sep 2026 18:30:00 +0800
+
 expat (2.8.2-1~deb13u1deepin4) unstable; urgency=medium
 
   * fix(cve): CVE-2026-76956
 
  -- deepin-ci-robot <packages@deepin.org>  Tue, 01 Sep 2026 12:15:33 +0800
+
 
 expat (2.8.2-1~deb13u1deepin3) unstable; urgency=medium
 

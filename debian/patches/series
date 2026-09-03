@@ -3,4 +3,5 @@ fix-expat-cmake.patch
 CVE-2026-72522.patch
 CVE-2026-76957.patch
 CVE-2026-66046.patch
+CVE-2026-76641.patch
 CVE-2026-76956.patch
