@@ -1,3 +1,15 @@
+expat (2.8.2-1~deb13u1deepin7) unstable; urgency=medium
+
+  * fix(cve): CVE-2026-93990 (high) - lib: reject UTF-16 high surrogate
+    not followed by a low surrogate   Upstream:
+    https://github.com/libexpat/libexpat/pull/1282.patch
+  * fix(cve): CVE-2026-102633 (unknown) - lib|tests: Replace assert with
+    runtime overflow check in expat_realloc   Upstream:
+    https://github.com/libexpat/libexpat/commit/69edbec09f2cd3e0bd6e0a09
+    3b55ea38af902d7d
+
+ -- deepin-ci-robot <packages@deepin.org>  Tue, 22 Sep 2026 22:05:55 +0800
+
 expat (2.8.2-1~deb13u1deepin6) unstable; urgency=medium
 
   * Rebuild with LTO enabled (dpkg vendor feature optimize/lto).
