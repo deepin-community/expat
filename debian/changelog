@@ -10,6 +10,9 @@ expat (2.8.2-1~deb13u1deepin8) unstable; urgency=medium
   * fix(cve): CVE-2026-118370 (high) - lib: Protect `nPrefixes` and
     `attIndex` in `storeAtts` from signed integer overflow   Upstream:
     https://github.com/libexpat/libexpat/pull/1450
+  * fix(cve): CVE-2026-113351 (unknown) - Merge pull request #1431 from
+    libexpat/fix-parser-reset   Upstream:
+    https://github.com/libexpat/libexpat/pull/1431
 
  -- deepin-ci-robot <packages@deepin.org>  Tue, 03 Nov 2026 16:30:03 +0800
 
