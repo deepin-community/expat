@@ -13,6 +13,10 @@ expat (2.8.2-1~deb13u1deepin8) unstable; urgency=medium
   * fix(cve): CVE-2026-113351 (unknown) - Merge pull request #1431 from
     libexpat/fix-parser-reset   Upstream:
     https://github.com/libexpat/libexpat/pull/1431
+  * fix(cve): CVE-2026-117610 (unknown) - lib: Fix initial non-final
+    empty subparser call with a handler   Upstream:
+    https://github.com/libexpat/libexpat/commit/7b0d50e4b1d16fafd5587626
+    0701e04279a7489d
 
  -- deepin-ci-robot <packages@deepin.org>  Tue, 03 Nov 2026 16:30:03 +0800
 
