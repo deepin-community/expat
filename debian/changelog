@@ -1,12 +1,15 @@
 expat (2.8.2-1~deb13u1deepin8) unstable; urgency=medium
 
   * fix(cve): CVE-2026-115506 (high) - Precompute entity expanded sizes
-    to detect amplification attacks early   Upstream:
+    to detect amplification attacks early
+    Upstream:
     https://github.com/libexpat/libexpat/commit/041b6cd115cde31a28375abc
     6e96e83ddab400fe,https://github.com/libexpat/libexpat/commit/d89d67e
     0d7f0917b0a65ec8bb54fc8d66c1049d2,https://github.com/libexpat/libexp
     at/commit/eb525ded2da77214926e20af9ad8b260e073df5c,https://github.co
-    m/libexpat/libexpat/commit/711a9b2d9fcae0dc622b3d7edb73b0ad3026c942
+    m/libexpat/libexpat/commit/711a9b2d9fcae0dc622b3d7edb73b0ad3026c942,
+    https://github.com/libexpat/libexpat/commit/5619228015f818d3161f5744
+    6ed5ba7ab6f67154 (CDATA/comment/PI handling in entity scanning)
   * fix(cve): CVE-2026-118370 (high) - lib: Protect `nPrefixes` and
     `attIndex` in `storeAtts` from signed integer overflow   Upstream:
     https://github.com/libexpat/libexpat/pull/1450
