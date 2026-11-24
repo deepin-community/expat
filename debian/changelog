@@ -20,6 +20,13 @@ expat (2.8.2-1~deb13u1deepin8) unstable; urgency=medium
     empty subparser call with a handler   Upstream:
     https://github.com/libexpat/libexpat/commit/7b0d50e4b1d16fafd5587626
     0701e04279a7489d
+  * fix(cve): CVE-2026-128241 (unknown) - xmlwf: Plug symlink attacks
+    with `-d <directory>` mode   Upstream:
+    https://github.com/libexpat/libexpat/pull/1502,https://github.com/li
+    bexpat/libexpat/commit/7e52b22b6462c8384d4bae60cc8fdbdaff30237b,http
+    s://github.com/libexpat/libexpat/commit/26f00fc7b173cb89d349adc04f45
+    3579e2c48db4,https://github.com/libexpat/libexpat/commit/3d3f3aedea5
+    2216b006046333704e1c28524f183
 
  -- deepin-ci-robot <packages@deepin.org>  Tue, 03 Nov 2026 16:30:03 +0800
 
