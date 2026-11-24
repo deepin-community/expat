@@ -1,3 +1,12 @@
+expat (2.8.2-1~deb13u1deepin9) unstable; urgency=medium
+
+  * fix(cve): CVE-2026-134703 (medium) - lib: Access the right "last two
+    bytes" with UTF-16 decoding   Upstream:
+    https://github.com/libexpat/libexpat/commit/702389c818cb402f2423fa99
+    8fa11907d621959f
+
+ -- deepin-ci-robot <packages@deepin.org>  Tue, 24 Nov 2026 20:05:54 +0800
+
 expat (2.8.2-1~deb13u1deepin8) unstable; urgency=medium
 
   * fix(cve): CVE-2026-115506 (high) - Precompute entity expanded sizes
